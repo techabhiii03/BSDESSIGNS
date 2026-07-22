@@ -1,132 +1,445 @@
-const nav = document.getElementById("mainNav");
-const backToTop = document.getElementById("backToTop");
-const year = document.getElementById("year");
-
-year.textContent = new Date().getFullYear();
-
-window.addEventListener("scroll", () => {
-  nav.classList.toggle("scrolled", window.scrollY > 40);
-  backToTop.classList.toggle("show", window.scrollY > 500);
-});
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-document.querySelectorAll(".nav-link, .navbar .btn").forEach(link => {
-  link.addEventListener("click", () => {
-    const menu = document.getElementById("navbarMenu");
-    const collapse = bootstrap.Collapse.getInstance(menu);
-    if (collapse) collapse.hide();
-  });
-});
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projectItems = document.querySelectorAll(".project-item");
-
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    const selected = button.dataset.filter;
-    projectItems.forEach(item => {
-      const matches = selected === "all" || item.dataset.category === selected;
-      item.classList.toggle("is-hidden", !matches);
-    });
-  });
-});
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-const consultationForm = document.getElementById("consultationForm");
-const formSuccess = document.getElementById("formSuccess");
-
-consultationForm.addEventListener("submit", event => {
-  event.preventDefault();
-
-  if (!consultationForm.checkValidity()) {
-    event.stopPropagation();
-    consultationForm.classList.add("was-validated");
-    return;
-  }
-
-  consultationForm.reset();
-  consultationForm.classList.remove("was-validated");
-  formSuccess.style.display = "block";
-
-  setTimeout(() => {
-    formSuccess.style.display = "none";
-  }, 5000);
-});
-
-const projectData = {
-  "warm-residence": {category:"Residential interior",title:"Warm Minimal Residence",intro:"A calm family home shaped through natural textures, clean geometry and practical storage.",brief:"The owners wanted a premium but comfortable home with open social areas, private retreat spaces and generous concealed storage.",owner:"Aarav and Kavya Mehta",ownerRole:"Homeowners",review:"The team balanced design and practicality beautifully. Every corner feels intentional, and the execution was far more organised than we expected.",location:"Gurugram, Haryana",area:"3,200 sq. ft.",duration:"7 months",budget:"₹48–55 lakh",completed:"February 2026",scope:"Complete turnkey interior",result:"Delivered 3% under the approved budget.",challenges:["Creating storage without reducing openness.","Working around fixed plumbing and structural positions.","Maintaining consistent veneer shades."],solutions:["Integrated storage into wall panelling.","Replanned wet areas around existing service shafts.","Approved finish samples and veneer batches before production."],images:["https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1500&q=88","https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=88","https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=88"]},
-  "studio-office": {category:"Commercial interior",title:"Studio Office",intro:"A flexible workplace for focused work, collaboration and client presentations.",brief:"The founder needed a compact office that could support a growing team while maintaining a creative and premium identity.",owner:"Rohan Malhotra",ownerRole:"Founder, Northline Studio",review:"The office feels larger, brighter and much more aligned with our brand.",location:"New Delhi",area:"1,850 sq. ft.",duration:"14 weeks",budget:"₹24–28 lakh",completed:"November 2025",scope:"Design and build",result:"Added 20% more usable workstations.",challenges:["Limited natural light.","Short fit-out window.","Sound control between open desks and meeting rooms."],solutions:["Used glazed partitions.","Executed civil and furniture packages in parallel.","Added acoustic ceilings and fabric panels."],images:["https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1500&q=88","https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=88","https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=88"]},
-  "quiet-kitchen": {category:"Renovation",title:"Quiet Kitchen",intro:"A dated kitchen transformed into a brighter and more efficient family workspace.",brief:"The client wanted better circulation, more preparation space and easier maintenance while retaining selected appliances.",owner:"Neha Kapoor",ownerRole:"Homeowner",review:"Storage, lighting and workflow are all better, and the renovation was surprisingly manageable.",location:"Noida, Uttar Pradesh",area:"620 sq. ft.",duration:"9 weeks",budget:"₹12–15 lakh",completed:"August 2025",scope:"Kitchen renovation",result:"Increased counter space by 35%.",challenges:["Uneven walls and outdated wiring.","Keeping part of the kitchen usable.","Matching retained appliances with new cabinetry."],solutions:["Created a service wall.","Divided work into controlled phases.","Prepared appliance-specific shop drawings."],images:["https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1500&q=88","https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=88","https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=88"]},
-  "private-suite": {category:"Residential interior",title:"Serene Private Suite",intro:"A layered bedroom suite designed around rest, privacy and soft hotel-like comfort.",brief:"The homeowners wanted a quiet and luxurious primary suite without decorative excess.",owner:"Vikram and Isha Sethi",ownerRole:"Homeowners",review:"It feels like a private retreat inside our own home.",location:"Faridabad, Haryana",area:"980 sq. ft.",duration:"12 weeks",budget:"₹18–22 lakh",completed:"April 2026",scope:"Suite design and execution",result:"Completed on schedule with all custom furniture installed.",challenges:["Long narrow room.","Concealing services.","Balancing soft and functional lighting."],solutions:["Used a custom headboard wall.","Integrated services into coves and joinery.","Layered ambient, reading and wardrobe lighting."],images:["https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1500&q=88","https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=88","https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1200&q=88"]}
+const BUSINESS = {
+  whatsappNumber: "919625995621",
+  whatsappGreeting: "Hello BSDESSIGNS, I would like to discuss a project.",
 };
 
-const projectDialog = document.getElementById("projectDialog");
-const caseClose = document.getElementById("caseClose");
-let lastProjectTrigger = null;
-
-function fillList(id, items){document.getElementById(id).innerHTML = items.map(item => `<li>${item}</li>`).join("");}
-function openProject(key, trigger){
-  const p = projectData[key]; if(!p) return;
-  lastProjectTrigger = trigger;
-  const fields={caseCategory:p.category,caseTitle:p.title,caseIntro:p.intro,caseBrief:p.brief,caseReview:p.review,caseOwner:p.owner,caseOwnerRole:p.ownerRole,caseLocation:p.location,caseArea:p.area,caseDuration:p.duration,caseBudget:p.budget,caseCompleted:p.completed,caseScope:p.scope,caseResult:p.result};
-  Object.entries(fields).forEach(([id,value])=>document.getElementById(id).textContent=value);
-  fillList("caseChallenges",p.challenges); fillList("caseSolutions",p.solutions);
-  document.getElementById("caseGallery").innerHTML=p.images.map((src,i)=>`<img src="${src}" alt="${p.title} image ${i+1}">`).join("");
-  document.body.classList.add("dialog-open");
-  projectDialog.showModal();
-  projectDialog.querySelector(".case-scroll").scrollTop=0;
-}
-function closeProject(){ if(projectDialog.open) projectDialog.close(); }
-caseClose.addEventListener("click", closeProject);
-projectDialog.addEventListener("click", e=>{ if(e.target===projectDialog) closeProject(); });
-projectDialog.addEventListener("close", ()=>{document.body.classList.remove("dialog-open"); lastProjectTrigger?.focus();});
-document.querySelectorAll(".project-open").forEach(card=>{
-  card.addEventListener("click",()=>openProject(card.dataset.project,card));
-  card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openProject(card.dataset.project,card);}});
-});
-
-function removeStuckModalBackdrop() {
-  document.querySelectorAll(".modal-backdrop").forEach(backdrop => {
-    backdrop.remove();
-  });
-
-  document.body.classList.remove("modal-open");
-  document.body.style.removeProperty("overflow");
-  document.body.style.removeProperty("padding-right");
-
-  document.documentElement.style.removeProperty("overflow");
-}
-
-document.addEventListener("DOMContentLoaded", removeStuckModalBackdrop);
-
-document.getElementById("projectModal")?.addEventListener("hidden.bs.modal", () => {
-  removeStuckModalBackdrop();
-});
-
-document.querySelectorAll("[data-bs-dismiss='modal']").forEach(button => {
-  button.addEventListener("click", () => {
-    setTimeout(removeStuckModalBackdrop, 300);
-  });
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
-    setTimeout(removeStuckModalBackdrop, 300);
+const projectData = {
+  "alpha-corp": {
+    "category": "Commercial / Infrastructure",
+    "title": "Alpha Corp - UGT & STP",
+    "intro": "Civil and structural construction for underground water tank and sewage treatment plant facilities.",
+    "brief": "Execution of UGT and STP civil and structural works at Alpha International City, Karnal.",
+    "challenges": [
+      "Heavy reinforced-concrete work",
+      "Coordination of below-ground services",
+      "Quality control for water-retaining structures"
+    ],
+    "solutions": [
+      "Stage-wise reinforcement and shuttering checks",
+      "Planned concrete pours and curing",
+      "Close coordination with site requirements"
+    ],
+    "facts": {
+      "Location": "Alpha International City, Karnal",
+      "Value": "₹1.5 Cr",
+      "Duration": "Nov 2022 - Feb 2024",
+      "Scope": "Civil & structural work for UGT and STP"
+    },
+    "outcome": "Successfully delivered with precise execution of water-retaining infrastructure, reinforced-concrete works and coordinated below-ground services.",
+    "images": [
+      "assets/projects/alpha-corp-1.jpeg",
+      "assets/projects/alpha-corp-2.jpeg"
+    ]
+  },
+  "de-spaces": {
+    "category": "Commercial Construction",
+    "title": "DE! Spaces Commercial Project",
+    "intro": "Civil and structural execution for a basement, stilt and four-floor commercial building.",
+    "brief": "Commercial construction at Plot No. 1057, Sector 40, Gurugram.",
+    "challenges": [
+      "Large multi-level structure",
+      "Urban-site coordination",
+      "Schedule and material sequencing"
+    ],
+    "solutions": [
+      "Structured floor-wise execution",
+      "Regular quality checks",
+      "Coordinated procurement and site planning"
+    ],
+    "facts": {
+      "Location": "Sector 40, Gurugram",
+      "Area": "21,000 sq. ft.",
+      "Value": "₹2.5 Cr",
+      "Duration": "Dec 2022 - Jan 2024",
+      "Architect": "DE! Spaces"
+    },
+    "outcome": "Executed as a multi-level commercial structure with disciplined floor-wise planning, quality control and coordinated site management.",
+    "representativeImage": true,
+    "images": [
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=88"
+    ]
+  },
+  "adeco-sector14": {
+    "category": "Commercial / Residential",
+    "title": "Adeco Energy - Sector 14",
+    "intro": "Civil and structural construction for a stilt plus three-floor builder project.",
+    "brief": "Builder-floor execution at Plot No. 447, Sector 14, Gurugram.",
+    "challenges": [
+      "Multi-storey structural coordination",
+      "Limited urban site access",
+      "Maintaining alignment and finish quality"
+    ],
+    "solutions": [
+      "Floor-wise execution planning",
+      "Regular dimensional checks",
+      "Coordinated concrete and masonry work"
+    ],
+    "facts": {
+      "Location": "Sector 14, Gurugram",
+      "Area": "11,500 sq. ft.",
+      "Value": "₹35 Lakh",
+      "Duration": "May 2022 - Apr 2023",
+      "Architect": "DE! Spaces"
+    },
+    "outcome": "Delivered with careful multi-storey coordination, dimensional accuracy and consistent structural quality across each construction stage.",
+    "images": [
+      "assets/projects/adeco-sector14.jpeg"
+    ]
+  },
+  "villa-sector15": {
+    "category": "Residential Construction",
+    "title": "Private Villa - Sector 15",
+    "intro": "Civil and structural work for a private residential villa.",
+    "brief": "Construction of an 8,000 sq. ft. residence in Sector 15 Part 2, Gurugram.",
+    "challenges": [
+      "Custom architectural geometry",
+      "Large open spans",
+      "Coordination between design and structure"
+    ],
+    "solutions": [
+      "Detailed structural setting-out",
+      "Stage-wise quality inspections",
+      "Integrated execution with architectural requirements"
+    ],
+    "facts": {
+      "Location": "Sector 15 Part 2, Gurugram",
+      "Area": "8,000 sq. ft.",
+      "Value": "₹48 Lakh",
+      "Duration": "2021 - 2022",
+      "Architect": "Design Acrolect"
+    },
+    "outcome": "Completed as a custom private residence with strong structural detailing, coordinated architectural execution and lasting build quality.",
+    "images": [
+      "assets/projects/villa-construction.jpeg",
+      "assets/projects/villa-render.jpeg"
+    ]
+  },
+  "naresh-c76": {
+    "category": "Residential Construction",
+    "title": "Suncity Builder Floor - C76",
+    "intro": "Civil and structural construction for a large builder-floor project.",
+    "brief": "Execution at Plot C-76, Suncity, Gurugram.",
+    "challenges": [
+      "Large built-up area",
+      "Multi-floor sequencing",
+      "Facade and structural coordination"
+    ],
+    "solutions": [
+      "Detailed activity scheduling",
+      "Regular reinforcement and concrete checks",
+      "Coordinated facade execution"
+    ],
+    "facts": {
+      "Location": "Suncity, Gurugram",
+      "Area": "24,000 sq. ft.",
+      "Value": "₹60 Lakh",
+      "Duration": "Mar 2021 - Apr 2022",
+      "Architect": "Studio Mathema"
+    },
+    "outcome": "Delivered as a large builder-floor development through planned sequencing, rigorous reinforcement checks and coordinated facade execution.",
+    "images": [
+      "assets/projects/naresh-c76-progress.jpeg",
+      "assets/projects/naresh-c76-facade.jpeg"
+    ]
+  },
+  "mblm-bilaspur": {
+    "category": "Residential Construction",
+    "title": "MBLM Group Residence",
+    "intro": "Civil structure work for a substantial private residence.",
+    "brief": "Residential project at Bilaspur Village.",
+    "challenges": [
+      "Large residence footprint",
+      "Architectural detailing",
+      "Coordination of structure and elevation"
+    ],
+    "solutions": [
+      "Phased structural execution",
+      "Quality monitoring at each stage",
+      "Close coordination with consultants"
+    ],
+    "facts": {
+      "Location": "Bilaspur Village",
+      "Area": "12,000 sq. ft.",
+      "Value": "₹55 Lakh",
+      "Duration": "2021 - 2022",
+      "Architect": "Jain Consultants"
+    },
+    "outcome": "Transformed from design concept into built form through phased structural execution, close consultant coordination and continuous quality monitoring.",
+    "images": [
+      "assets/projects/mblm-render.jpeg",
+      "assets/projects/mblm-progress-1.jpeg",
+      "assets/projects/mblm-progress-2.jpeg"
+    ]
+  },
+  "guarantors": {
+    "category": "Structural Strengthening",
+    "title": "Tata New Haven Strengthening",
+    "intro": "Structural strengthening work for Guarantors Infrastructure.",
+    "brief": "Strengthening works at Tata New Haven, Bahadurgarh.",
+    "challenges": [
+      "Working with existing structural members",
+      "Maintaining site safety",
+      "Accurate reinforcement integration"
+    ],
+    "solutions": [
+      "Controlled strengthening sequence",
+      "Site safety and access planning",
+      "Detailed reinforcement placement checks"
+    ],
+    "facts": {
+      "Location": "Bahadurgarh, Haryana",
+      "Value": "₹60 Lakh",
+      "Duration": "2020 - 2022",
+      "Scope": "Structural strengthening"
+    },
+    "outcome": "Existing structural elements were strengthened through a controlled execution sequence focused on safety, reinforcement accuracy and long-term performance.",
+    "images": [
+      "assets/projects/guarantors-1.jpeg",
+      "assets/projects/guarantors-2.jpeg"
+    ]
+  },
+  "fortune-farmhouse": {
+    "category": "Residential Construction",
+    "title": "SKN Farmhouse",
+    "intro": "Structure and civil construction for a farmhouse property.",
+    "brief": "Farmhouse project in Ghitorni, New Delhi.",
+    "challenges": [
+      "Large open site",
+      "Architectural columns and spans",
+      "Material and labour coordination"
+    ],
+    "solutions": [
+      "Planned structural sequence",
+      "Regular site supervision",
+      "Quality checks across civil stages"
+    ],
+    "facts": {
+      "Location": "Ghitorni, New Delhi",
+      "Value": "₹27 Lakh",
+      "Duration": "2019 - 2020",
+      "Scope": "Structure & civil work"
+    },
+    "outcome": "Completed with thoughtful structural planning, reliable site supervision and quality-focused civil execution across the open-site development.",
+    "images": [
+      "assets/projects/fortune-farmhouse-1.jpeg",
+      "assets/projects/fortune-farmhouse-2.jpeg"
+    ]
+  },
+  "casabella": {
+    "category": "Interior Work",
+    "title": "Casabella Society Interior",
+    "intro": "Interior execution for a residential apartment.",
+    "brief": "Interior project at Casabella Society, Sector 83, Gurugram.",
+    "challenges": [
+      "Coordinating finishes in an occupied development",
+      "Space-efficient planning",
+      "Lighting and material integration"
+    ],
+    "solutions": [
+      "Planned interior work sequence",
+      "Coordinated furniture and finishes",
+      "Layered lighting and decor"
+    ],
+    "facts": {
+      "Location": "Sector 83, Gurugram",
+      "Value": "₹12 Lakh",
+      "Duration": "2019 - 2020",
+      "Scope": "Interior work"
+    },
+    "outcome": "Delivered as a functional and refined residential interior with coordinated finishes, space-efficient planning and integrated lighting details.",
+    "images": [
+      "assets/projects/casabella-interior.jpeg"
+    ]
+  },
+  "adeco-manesar": {
+    "category": "Industrial Construction",
+    "title": "Adeco Energy - Manesar",
+    "intro": "Civil, structural and fabrication work for industrial DG foundations and smoke chimney systems.",
+    "brief": "Industrial execution at Plot No. 75, Sector 8, Manesar.",
+    "challenges": [
+      "Foundation precision for equipment",
+      "Tall fabricated chimney support",
+      "Industrial safety coordination"
+    ],
+    "solutions": [
+      "Accurate setting-out and foundation checks",
+      "Coordinated fabrication and erection",
+      "Site safety supervision"
+    ],
+    "facts": {
+      "Location": "Sector 8, Manesar",
+      "Value": "₹25 Lakh",
+      "Duration": "Nov 2022 - Jan 2023",
+      "Scope": "DG foundations & MS smoke chimney"
+    },
+    "outcome": "Executed with accurate equipment-foundation setting-out, coordinated fabrication and strict attention to industrial safety requirements.",
+    "images": [
+      "assets/projects/adeco-manesar.jpeg"
+    ]
   }
-});
+};
+
+const header=document.getElementById("siteHeader"),backTop=document.getElementById("backTop"),menuToggle=document.getElementById("menuToggle"),mainNav=document.getElementById("mainNav");
+document.getElementById("year").textContent=new Date().getFullYear();
+window.addEventListener("scroll",()=>{header.classList.toggle("scrolled",scrollY>30);backTop.classList.toggle("show",scrollY>600)});
+backTop.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+menuToggle.addEventListener("click",()=>{const open=mainNav.classList.toggle("open");menuToggle.setAttribute("aria-expanded",open)});
+mainNav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mainNav.classList.remove("open");menuToggle.setAttribute("aria-expanded","false")}));
+
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const filters=document.querySelectorAll(".filter"),projects=document.querySelectorAll(".project-card");
+filters.forEach(btn=>btn.addEventListener("click",()=>{filters.forEach(b=>b.classList.remove("active"));btn.classList.add("active");projects.forEach(card=>card.classList.toggle("hidden",btn.dataset.filter!=="all"&&card.dataset.category!==btn.dataset.filter))}));
+
+const dialog=document.getElementById("projectDialog"),dialogClose=document.getElementById("dialogClose");
+function openProject(key) {
+  const p = projectData[key];
+  if (!p) return;
+
+  document.getElementById("dialogCategory").textContent = p.category;
+  document.getElementById("dialogTitle").textContent = p.title;
+  document.getElementById("dialogIntro").textContent = p.intro;
+  document.getElementById("dialogBrief").textContent = p.brief;
+  document.getElementById("dialogChallenges").innerHTML = p.challenges.map(x => `<li>${x}</li>`).join("");
+  document.getElementById("dialogSolutions").innerHTML = p.solutions.map(x => `<li>${x}</li>`).join("");
+  document.getElementById("dialogFacts").innerHTML = Object.entries(p.facts)
+    .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`)
+    .join("");
+  document.getElementById("dialogOutcome").textContent = p.outcome;
+
+  const note = document.getElementById("representativeNote");
+  note.hidden = !p.representativeImage;
+
+  const gallery = document.getElementById("dialogGallery");
+  gallery.dataset.count = String(p.images.length);
+  gallery.innerHTML = p.images
+    .map((src, i) => `<img src="${src}" alt="${p.title} project image ${i + 1}" loading="eager">`)
+    .join("");
+  gallery.scrollLeft = 0;
+
+  document.body.classList.add("dialog-open");
+  dialog.showModal();
+  document.querySelector(".dialog-scroll").scrollTop = 0;
+}
+projects.forEach(card=>{card.addEventListener("click",()=>openProject(card.dataset.project));card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openProject(card.dataset.project)}})});
+dialogClose.addEventListener("click",()=>dialog.close());dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});dialog.addEventListener("close",()=>document.body.classList.remove("dialog-open"));
+
+function whatsappUrl(message){return `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(message)}`}
+document.getElementById("directWhatsApp").href=whatsappUrl(BUSINESS.whatsappGreeting);document.getElementById("floatingWhatsApp").href=whatsappUrl(BUSINESS.whatsappGreeting);
+document.getElementById("enquiryForm").addEventListener("submit",e=>{e.preventDefault();const form=e.currentTarget;if(!form.checkValidity()){form.reportValidity();return}const name=document.getElementById("name").value.trim(),phone=document.getElementById("phone").value.trim(),type=document.getElementById("projectType").value,location=document.getElementById("location").value.trim()||"Not specified",message=document.getElementById("message").value.trim()||"Not specified";const text=`Hello BSDESSIGNS, I would like to request a consultation.\n\nName: ${name}\nPhone: ${phone}\nProject type: ${type}\nLocation: ${location}\nProject details: ${message}`;window.open(whatsappUrl(text),"_blank","noopener")});
+
+/* =========================================================
+   TESTIMONIAL CAROUSEL
+   Auto-slide, arrows, dots and touch/trackpad scrolling
+========================================================= */
+(() => {
+  const track = document.querySelector('.testimonial-grid');
+  if (!track) return;
+
+  const cards = Array.from(track.querySelectorAll('.testimonial'));
+  if (cards.length < 2) return;
+
+  const controls = document.createElement('div');
+  controls.className = 'testimonial-carousel-controls';
+  controls.setAttribute('aria-label', 'Testimonial navigation');
+
+  const previous = document.createElement('button');
+  previous.className = 'testimonial-arrow';
+  previous.type = 'button';
+  previous.setAttribute('aria-label', 'Previous testimonial');
+  previous.innerHTML = '<i class="bi bi-arrow-left"></i>';
+
+  const dots = document.createElement('div');
+  dots.className = 'testimonial-dots';
+
+  const next = document.createElement('button');
+  next.className = 'testimonial-arrow';
+  next.type = 'button';
+  next.setAttribute('aria-label', 'Next testimonial');
+  next.innerHTML = '<i class="bi bi-arrow-right"></i>';
+
+  const dotButtons = cards.map((_, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'testimonial-dot';
+    dot.setAttribute('aria-label', `Show testimonial ${index + 1}`);
+    dot.addEventListener('click', () => goTo(index));
+    dots.appendChild(dot);
+    return dot;
+  });
+
+  controls.append(previous, dots, next);
+  track.insertAdjacentElement('afterend', controls);
+
+  let current = 0;
+  let timer;
+  let userInteracting = false;
+
+  function visibleCards() {
+    return window.matchMedia('(max-width: 640px)').matches ? 1 : Math.min(2, cards.length);
+  }
+
+  function maxIndex() {
+    return Math.max(0, cards.length - visibleCards());
+  }
+
+  function goTo(index, smooth = true) {
+    current = Math.max(0, Math.min(index, maxIndex()));
+    const card = cards[current];
+    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+    updateDots();
+  }
+
+  function updateDots() {
+    dotButtons.forEach((dot, index) => dot.classList.toggle('active', index === current));
+  }
+
+  function step(direction) {
+    const limit = maxIndex();
+    current = direction > 0
+      ? (current >= limit ? 0 : current + 1)
+      : (current <= 0 ? limit : current - 1);
+    goTo(current);
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(() => {
+      if (!userInteracting && !document.hidden) step(1);
+    }, 4500);
+  }
+
+  previous.addEventListener('click', () => { step(-1); startAuto(); });
+  next.addEventListener('click', () => { step(1); startAuto(); });
+
+  ['pointerdown', 'touchstart', 'mouseenter'].forEach(eventName => {
+    track.addEventListener(eventName, () => { userInteracting = true; }, { passive: true });
+  });
+  ['pointerup', 'touchend', 'mouseleave'].forEach(eventName => {
+    track.addEventListener(eventName, () => { userInteracting = false; startAuto(); }, { passive: true });
+  });
+
+  let scrollEndTimer;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollEndTimer);
+    scrollEndTimer = setTimeout(() => {
+      const trackLeft = track.getBoundingClientRect().left;
+      let nearest = 0;
+      let distance = Infinity;
+      cards.forEach((card, index) => {
+        const d = Math.abs(card.getBoundingClientRect().left - trackLeft);
+        if (d < distance) { distance = d; nearest = index; }
+      });
+      current = Math.min(nearest, maxIndex());
+      updateDots();
+    }, 90);
+  }, { passive: true });
+
+  window.addEventListener('resize', () => goTo(Math.min(current, maxIndex()), false));
+  document.addEventListener('visibilitychange', startAuto);
+
+  updateDots();
+  startAuto();
+})();
