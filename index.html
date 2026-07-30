@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -14,7 +13,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
+<link as="image" fetchpriority="high" href="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=2000&amp;q=90" rel="preload"/><link href="style.css" rel="stylesheet"/>
 </head>
 <body>
 <a class="skip-link" href="#main">
@@ -24,7 +23,7 @@
 <header class="site-header" id="siteHeader">
 <div class="container nav-shell">
 <a aria-label="BS DESSIGNS home" class="brand" href="#home">
-<img alt="BS DESSIGNS Logo" class="brand-logo" src="assets/logo.jpeg"/>
+<img alt="BS DESSIGNS Logo" class="brand-logo" decoding="async" fetchpriority="high" height="1018" loading="eager" src="assets/logo.webp" width="1024"/>
 <span class="brand-copy">
 <strong>
        BS DESSIGNS
@@ -69,59 +68,39 @@
 </header>
 <main id="main">
 <!-- ========================= HERO SECTION ========================= -->
-<section class="hero" id="home">
-<div class="hero-bg">
+<section class="hero hero-v11" id="home">
+<div aria-hidden="true" class="hero-bg">
+<div class="hero-panel hero-panel-interior"></div>
+<div class="hero-panel hero-panel-home"></div>
+<div class="hero-panel hero-panel-build"></div>
 </div>
-<div class="hero-overlay">
-</div>
+<div aria-hidden="true" class="hero-overlay"></div>
 <div class="container hero-content">
-<p class="eyebrow light">
-      Interior design · Construction · Renovation
-     </p>
-<h1>
-      We design spaces people love and build them to last.
-     </h1>
+<div class="hero-copy">
+<p class="hero-brand-label">BS DESSIGNS <span>Interior Design · Construction</span></p>
+<h1>Crafting Spaces That Inspire. Building Quality That Endures.</h1>
 <p class="hero-lead">
-      From the first site visit to final handover, BS DESSIGNS delivers thoughtful design, dependable construction and complete project coordination.
-     </p>
+        At BS DESSIGNS, we transform ideas into beautifully designed interiors and dependable construction projects. Guided by experienced leadership and quality craftsmanship, we create spaces that are functional, elegant and built to stand the test of time.
+      </p>
 <div class="hero-actions">
-<a class="btn btn-primary" href="#projects">
-       Explore our projects
-       <i class="bi bi-arrow-up-right">
-</i>
+<a class="btn btn-primary" href="#services">
+          Explore Our Services <i class="bi bi-arrow-down-right"></i>
 </a>
 <a class="btn btn-ghost" href="#contact">
-<i class="bi bi-telephone">
-</i>
-       Book a consultation
-      </a>
+<i class="bi bi-chat-dots"></i> Book a Free Consultation
+        </a>
 </div>
-<div class="hero-trust">
-<span>
-<strong>
-        End-to-end
-       </strong>
-       project execution
-      </span>
-<span>
-<strong>
-        Transparent
-       </strong>
-       planning &amp; costing
-      </span>
-<span>
-<strong>
-        Quality-led
-       </strong>
-       workmanship
-      </span>
+<div aria-label="Why choose BS DESSIGNS" class="hero-trust">
+<span><i class="bi bi-patch-check-fill"></i><strong>15+ Years</strong><small>Experience</small></span>
+<span><i class="bi bi-house-heart-fill"></i><strong>Interior</strong><small>Design</small></span>
+<span><i class="bi bi-buildings-fill"></i><strong>Civil</strong><small>Construction</small></span>
+<span><i class="bi bi-shield-check"></i><strong>Quality</strong><small>Workmanship</small></span>
+</div>
 </div>
 </div>
 <a aria-label="Scroll to about section" class="scroll-cue" href="#about">
-<span>
-</span>
-     Scroll
-    </a>
+<span></span> Scroll to Explore
+  </a>
 </section>
 <!-- ========================= COMPANY STATS ========================= -->
 <section aria-label="Company highlights" class="stats-band">
@@ -145,41 +124,13 @@
 </div>
 </section>
 <!-- ========================= ABOUT SECTION ========================= -->
-<section class="section about" id="about">
+<section class="section about about-v11" id="about">
 <div class="container two-col">
 <div class="about-visual reveal">
-<img alt="Modern interior designed with warm natural materials" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
-<div class="floating-note">
-<span>
-        One team
-       </span>
-<strong>
-        From concept to completion.
-       </strong>
+<img alt="Modern interior designed with warm natural materials" decoding="async" fetchpriority="low" loading="lazy" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<div class="floating-note"><span>Complete execution</span><strong>From concept<br/>to handover.</strong></div>
 </div>
-</div>
-<div class="about-copy reveal">
-<p class="eyebrow">
-       About BS DESSIGNS
-      </p>
-<h2>
-       Good design is not decoration. It is how a space works, feels and lasts.
-      </h2>
-<p class="lead">BS DESSIGNS brings together interior design and civil construction expertise across residential, commercial and industrial projects, guided by experienced professionals and disciplined execution.</p>
-<p>
-       We bring design thinking and site execution together under one roof. That means fewer communication gaps, clearer accountability and better control over quality, budget and timelines.
-      </p>
-<div class="founder-note">
-<i class="bi bi-quote">
-</i>
-<p>
-        Every project should feel personal to the client and professional in its execution.
-       </p>
-<span>
-        — Ms. Babita Baghel, Managing Director
-       </span>
-</div>
-</div>
+<div class="about-copy reveal"><p class="eyebrow">About BS DESSIGNS</p><h2>One Team. One Vision. Complete Execution.</h2><p class="lead">At <strong>BS DESSIGNS</strong>, we bring interior design and construction together through one experienced team. From concept planning to project handover, every stage is managed with precision, transparency, and attention to detail.</p><p>Whether designing elegant interiors or delivering quality construction, our focus remains the same—creating spaces that are functional, aesthetically refined, and built to stand the test of time.</p><div aria-label="Our commitments" class="about-highlights"><div class="about-highlight"><i aria-hidden="true" class="bi bi-chat-square-text"></i><span>Transparent Communication</span></div><div class="about-highlight"><i aria-hidden="true" class="bi bi-patch-check"></i><span>Quality Workmanship</span></div><div class="about-highlight"><i aria-hidden="true" class="bi bi-calendar-check"></i><span>Timely Project Delivery</span></div></div><div class="founder-note"><i aria-hidden="true" class="bi bi-quote"></i><p>Every project deserves thoughtful design, disciplined execution, and lasting quality.</p><span>— Ms. Babita Baghel, Managing Director</span></div><p class="about-closing">Creating spaces that people love to live, work, and grow in.</p></div>
 </div>
 </section>
 <!-- ========================= LEADERSHIP SECTION ========================= -->
@@ -303,118 +254,94 @@
 </div>
 </section>
 <!-- ========================= SERVICES SECTION ========================= -->
-<section class="section services" id="services">
+<section class="section services services-v12" id="services">
 <div class="container">
 <div class="section-heading split reveal">
 <div>
-<p class="eyebrow">
-        What we do
-       </p>
-<h2>
-        Complete solutions for every kind of space.
-       </h2>
+<p class="eyebrow">What we do</p>
+<h2>Design, Build and Transform—Under One Roof.</h2>
 </div>
 <p>
-       Choose a complete turnkey solution or engage us for selected design, construction and renovation requirements.
+        From the first idea to final handover, BS DESSIGNS brings design thinking,
+        technical planning and dependable on-site execution together through one experienced team.
       </p>
 </div>
-<div class="services-grid">
-<article class="service-card reveal">
-<i class="bi bi-house-heart">
-</i>
-<span>
-        01
-       </span>
-<h3>
-        Residential Interiors
-       </h3>
-<p>
-        Personalised homes planned around comfort, storage, lifestyle and visual character.
-       </p>
-<ul>
-<li>
-         Space planning &amp; 3D design
-        </li>
-<li>
-         Modular kitchen &amp; wardrobes
-        </li>
-<li>
-         Furniture, lighting &amp; finishes
-        </li>
+<div class="services-grid services-grid-v12">
+<article class="service-card service-card-v12 reveal">
+<div class="service-card-top">
+<div class="service-icon"><i class="bi bi-house-heart"></i></div>
+<span class="service-number">01</span>
+</div>
+<p class="service-kicker">Comfort meets character</p>
+<h3>Residential Interiors</h3>
+<p class="service-description">
+          Thoughtfully planned homes that feel personal, practical and visually refined—from a single room to a complete residence.
+        </p>
+<ul class="service-features">
+<li><i class="bi bi-check2"></i> Space planning and 3D visualisation</li>
+<li><i class="bi bi-check2"></i> Modular kitchens and wardrobes</li>
+<li><i class="bi bi-check2"></i> Furniture, lighting and finishes</li>
 </ul>
+<a class="service-link" href="#contact">Plan your interior <i class="bi bi-arrow-up-right"></i></a>
 </article>
-<article class="service-card reveal">
-<i class="bi bi-buildings">
-</i>
-<span>
-        02
-       </span>
-<h3>
-        Commercial Interiors
-       </h3>
-<p>
-        Professional spaces that support brand identity, productivity and customer experience.
-       </p>
-<ul>
-<li>
-         Offices and studios
-        </li>
-<li>
-         Retail and hospitality
-        </li>
-<li>
-         Workspace planning
-        </li>
+<article class="service-card service-card-v12 reveal">
+<div class="service-card-top">
+<div class="service-icon"><i class="bi bi-buildings"></i></div>
+<span class="service-number">02</span>
+</div>
+<p class="service-kicker">Spaces that support business</p>
+<h3>Commercial Interiors</h3>
+<p class="service-description">
+          Brand-aligned workplaces and customer-facing spaces designed to improve flow, productivity and everyday experience.
+        </p>
+<ul class="service-features">
+<li><i class="bi bi-check2"></i> Offices, studios and showrooms</li>
+<li><i class="bi bi-check2"></i> Retail and hospitality spaces</li>
+<li><i class="bi bi-check2"></i> Workspace planning and execution</li>
 </ul>
+<a class="service-link" href="#contact">Design your workspace <i class="bi bi-arrow-up-right"></i></a>
 </article>
-<article class="service-card reveal">
-<i class="bi bi-bricks">
-</i>
-<span>
-        03
-       </span>
-<h3>
-        Construction
-       </h3>
-<p>
-        Structured civil execution backed by planning, supervision and stage-wise quality checks.
-       </p>
-<ul>
-<li>
-         New construction
-        </li>
-<li>
-         Civil and structural work
-        </li>
-<li>
-         Electrical and plumbing
-        </li>
+<article class="service-card service-card-v12 reveal">
+<div class="service-card-top">
+<div class="service-icon"><i class="bi bi-bricks"></i></div>
+<span class="service-number">03</span>
+</div>
+<p class="service-kicker">Built with discipline</p>
+<h3>Construction &amp; Civil Work</h3>
+<p class="service-description">
+          Quality-focused civil construction supported by experienced supervision, coordinated services and transparent progress tracking.
+        </p>
+<ul class="service-features">
+<li><i class="bi bi-check2"></i> New residential and commercial construction</li>
+<li><i class="bi bi-check2"></i> Civil and structural works</li>
+<li><i class="bi bi-check2"></i> Electrical and plumbing coordination</li>
 </ul>
+<a class="service-link" href="#contact">Discuss construction <i class="bi bi-arrow-up-right"></i></a>
 </article>
-<article class="service-card reveal">
-<i class="bi bi-hammer">
-</i>
-<span>
-        04
-       </span>
-<h3>
-        Renovation &amp; Turnkey
-       </h3>
-<p>
-        Complete transformation of existing spaces with one accountable project partner.
-       </p>
-<ul>
-<li>
-         Home and office renovation
-        </li>
-<li>
-         Vendor and material management
-        </li>
-<li>
-         Final finishing and handover
-        </li>
+<article class="service-card service-card-v12 reveal">
+<div class="service-card-top">
+<div class="service-icon"><i class="bi bi-hammer"></i></div>
+<span class="service-number">04</span>
+</div>
+<p class="service-kicker">One team, complete delivery</p>
+<h3>Renovation &amp; Turnkey</h3>
+<p class="service-description">
+          End-to-end transformation of existing spaces, managed from planning and procurement through finishing and final handover.
+        </p>
+<ul class="service-features">
+<li><i class="bi bi-check2"></i> Home and office renovation</li>
+<li><i class="bi bi-check2"></i> Vendor and material management</li>
+<li><i class="bi bi-check2"></i> Finishing, quality checks and handover</li>
 </ul>
+<a class="service-link" href="#contact">Start your renovation <i class="bi bi-arrow-up-right"></i></a>
 </article>
+</div>
+<div class="services-cta reveal">
+<div>
+<span>Not sure which service fits your project?</span>
+<strong>Share your requirement and we’ll help you choose the right approach.</strong>
+</div>
+<a class="btn btn-primary" href="#contact">Discuss Your Project <i class="bi bi-arrow-right"></i></a>
 </div>
 </div>
 </section>
@@ -428,360 +355,436 @@
 </div>
 <div aria-label="Project filters" class="filters" role="group"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="residential">Residential</button><button class="filter" data-filter="commercial">Commercial</button><button class="filter" data-filter="industrial">Industrial</button><button class="filter" data-filter="interior">Interior</button></div>
 </div>
-<div class="project-grid"><article class="project-card project-open reveal wide" data-category="commercial" data-project="alpha-corp" tabindex="0"><img alt="Alpha Corp - UGT &amp; STP project" src="assets/projects/alpha-corp-1.jpeg"/><div class="project-overlay"><span>Civil &amp; Structural</span><h3>Alpha Corp - UGT &amp; STP</h3><p>Karnal · ₹1.5 Cr</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="commercial" data-project="de-spaces" tabindex="0"><img alt="DE! Spaces Commercial Project project" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"/><div class="project-overlay"><span>Commercial Construction</span><h3>DE! Spaces Commercial Project</h3><p>Sector 40, Gurugram · 21,000 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="commercial" data-project="adeco-sector14" tabindex="0"><img alt="Adeco Energy - Sector 14 project" src="assets/projects/adeco-sector14.jpeg"/><div class="project-overlay"><span>Builder Floor</span><h3>Adeco Energy - Sector 14</h3><p>Gurugram · 11,500 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="residential" data-project="villa-sector15" tabindex="0"><img alt="Private Villa - Sector 15 project" src="assets/projects/villa-construction.jpeg"/><div class="project-overlay"><span>Residential Construction</span><h3>Private Villa - Sector 15</h3><p>Gurugram · 8,000 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal wide" data-category="residential" data-project="naresh-c76" tabindex="0"><img alt="Suncity Builder Floor - C76 project" src="assets/projects/naresh-c76-facade.jpeg"/><div class="project-overlay"><span>Builder Floor</span><h3>Suncity Builder Floor - C76</h3><p>Gurugram · 24,000 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="residential" data-project="mblm-bilaspur" tabindex="0"><img alt="MBLM Group Residence project" src="assets/projects/mblm-progress-1.jpeg"/><div class="project-overlay"><span>Residential Construction</span><h3>MBLM Group Residence</h3><p>Bilaspur · 12,000 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="commercial" data-project="guarantors" tabindex="0"><img alt="Tata New Haven Strengthening project" src="assets/projects/guarantors-1.jpeg"/><div class="project-overlay"><span>Structural Strengthening</span><h3>Tata New Haven Strengthening</h3><p>Bahadurgarh · ₹60 Lakh</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="residential" data-project="fortune-farmhouse" tabindex="0"><img alt="SKN Farmhouse project" src="assets/projects/fortune-farmhouse-1.jpeg"/><div class="project-overlay"><span>Farmhouse Construction</span><h3>SKN Farmhouse</h3><p>Ghitorni, New Delhi · ₹27 Lakh</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal wide" data-category="interior" data-project="casabella" tabindex="0"><img alt="Casabella Society Interior project" src="assets/projects/casabella-interior.jpeg"/><div class="project-overlay"><span>Interior Work</span><h3>Casabella Society Interior</h3><p>Sector 83, Gurugram · ₹12 Lakh</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="industrial" data-project="adeco-manesar" tabindex="0"><img alt="Adeco Energy - Manesar project" src="assets/projects/adeco-manesar.jpeg"/><div class="project-overlay"><span>Industrial Fabrication</span><h3>Adeco Energy - Manesar</h3><p>DG foundations &amp; smoke chimney</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article></div>
+<div class="project-grid"><article class="project-card project-open reveal wide" data-category="commercial" data-project="alpha-corp" tabindex="0"><img alt="Alpha Corp - UGT &amp; STP project" decoding="async" fetchpriority="low" height="1281" loading="lazy" src="assets/projects/alpha-corp-1.webp" width="962"/><div class="project-overlay"><span>Civil &amp; Structural</span><h3>Alpha Corp - UGT &amp; STP</h3><p>Karnal · ₹1.5 Cr</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="commercial" data-project="de-spaces" tabindex="0"><img alt="DE! Spaces Commercial Project project" decoding="async" fetchpriority="low" loading="lazy" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"/><div class="project-overlay"><span>Commercial Construction</span><h3>DE! Spaces Commercial Project</h3><p>Sector 40, Gurugram · 21,000 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="commercial" data-project="adeco-sector14" tabindex="0"><img alt="Adeco Energy - Sector 14 project" decoding="async" fetchpriority="low" height="1282" loading="lazy" src="assets/projects/adeco-sector14.webp" width="961"/><div class="project-overlay"><span>Builder Floor</span><h3>Adeco Energy - Sector 14</h3><p>Gurugram · 11,500 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="residential" data-project="villa-sector15" tabindex="0"><img alt="Private Villa - Sector 15 project" decoding="async" fetchpriority="low" height="595" loading="lazy" src="assets/projects/villa-construction.webp" width="789"/><div class="project-overlay"><span>Residential Construction</span><h3>Private Villa - Sector 15</h3><p>Gurugram · 8,000 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal wide" data-category="residential" data-project="naresh-c76" tabindex="0"><img alt="Suncity Builder Floor - C76 project" decoding="async" fetchpriority="low" height="1158" loading="lazy" src="assets/projects/naresh-c76-facade.webp" width="869"/><div class="project-overlay"><span>Builder Floor</span><h3>Suncity Builder Floor - C76</h3><p>Gurugram · 24,000 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="residential" data-project="mblm-bilaspur" tabindex="0"><img alt="MBLM Group Residence project" decoding="async" fetchpriority="low" height="1201" loading="lazy" src="assets/projects/mblm-progress-1.webp" width="1601"/><div class="project-overlay"><span>Residential Construction</span><h3>MBLM Group Residence</h3><p>Bilaspur · 12,000 sq. ft.</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="commercial" data-project="guarantors" tabindex="0"><img alt="Tata New Haven Strengthening project" decoding="async" fetchpriority="low" height="1026" loading="lazy" src="assets/projects/guarantors-1.webp" width="770"/><div class="project-overlay"><span>Structural Strengthening</span><h3>Tata New Haven Strengthening</h3><p>Bahadurgarh · ₹60 Lakh</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="residential" data-project="fortune-farmhouse" tabindex="0"><img alt="SKN Farmhouse project" decoding="async" fetchpriority="low" height="1042" loading="lazy" src="assets/projects/fortune-farmhouse-1.webp" width="782"/><div class="project-overlay"><span>Farmhouse Construction</span><h3>SKN Farmhouse</h3><p>Ghitorni, New Delhi · ₹27 Lakh</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal wide" data-category="interior" data-project="casabella" tabindex="0"><img alt="Casabella Society Interior project" decoding="async" fetchpriority="low" height="961" loading="lazy" src="assets/projects/casabella-interior.webp" width="1282"/><div class="project-overlay"><span>Interior Work</span><h3>Casabella Society Interior</h3><p>Sector 83, Gurugram · ₹12 Lakh</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article><article class="project-card project-open reveal" data-category="industrial" data-project="adeco-manesar" tabindex="0"><img alt="Adeco Energy - Manesar project" decoding="async" fetchpriority="low" height="794" loading="lazy" src="assets/projects/adeco-manesar.webp" width="591"/><div class="project-overlay"><span>Industrial Fabrication</span><h3>Adeco Energy - Manesar</h3><p>DG foundations &amp; smoke chimney</p><button>View project <i class="bi bi-arrow-up-right"></i></button></div></article></div>
 <p class="demo-note">Explore selected residential, commercial, industrial and interior projects delivered through experienced planning, supervision and quality-focused execution.</p>
 </div>
 </section>
 <!-- ========================= WORK PROCESS SECTION ========================= -->
-<section class="section process" id="process">
-<div class="container two-col process-layout">
-<div class="process-intro reveal">
-<p class="eyebrow">
-       How we work
+<section class="section process process-v14" id="process">
+<div class="container">
+<div class="process-heading reveal">
+<div>
+<p class="eyebrow">Our working process</p>
+<h2>From the first discussion to a confident final handover.</h2>
+</div>
+<p>
+        Every stage is planned, communicated and reviewed so you always know what comes next and how your project is progressing.
       </p>
-<h2>
-       A clear process from the first conversation to final handover.
-      </h2>
-<p>
-       At every stage, you know what is happening, what decisions are required and how the project is progressing.
-      </p>
-<a class="text-link" href="#contact">
-       Discuss your project
-       <i class="bi bi-arrow-right">
-</i>
-</a>
 </div>
-<div class="process-list">
-<article class="process-step reveal">
-<span>
-        01
-       </span>
-<div>
-<h3>
-         Consultation &amp; Site Visit
-        </h3>
-<p>
-         We understand your requirements, visit the location and define the initial scope, priorities and investment range.
-        </p>
+<div aria-label="Our five-step project process" class="process-timeline">
+<article class="process-stage reveal">
+<div class="process-marker"><span>01</span><i class="bi bi-chat-square-text"></i></div>
+<div class="process-stage-content">
+<p class="process-label">Understand</p>
+<h3>Consultation &amp; Site Visit</h3>
+<p>We discuss your needs, visit the site and define the priorities, scope and expected investment range.</p>
 </div>
 </article>
-<article class="process-step reveal">
-<span>
-        02
-       </span>
-<div>
-<h3>
-         Planning &amp; Design
-        </h3>
-<p>
-         Layouts, concepts, materials, visual direction and technical requirements are developed and approved.
-        </p>
+<article class="process-stage reveal">
+<div class="process-marker"><span>02</span><i class="bi bi-rulers"></i></div>
+<div class="process-stage-content">
+<p class="process-label">Create</p>
+<h3>Planning &amp; Design</h3>
+<p>Layouts, concepts, materials and technical details are developed around the way you want the space to work.</p>
 </div>
 </article>
-<article class="process-step reveal">
-<span>
-        03
-       </span>
-<div>
-<h3>
-         Estimate &amp; Schedule
-        </h3>
-<p>
-         The scope is converted into a clear estimate, material plan, execution sequence and expected timeline.
-        </p>
+<article class="process-stage reveal">
+<div class="process-marker"><span>03</span><i class="bi bi-clipboard-check"></i></div>
+<div class="process-stage-content">
+<p class="process-label">Define</p>
+<h3>Estimate &amp; Schedule</h3>
+<p>We prepare a clear cost estimate, material plan, work sequence and practical timeline before execution begins.</p>
 </div>
 </article>
-<article class="process-step reveal">
-<span>
-        04
-       </span>
-<div>
-<h3>
-         Execution &amp; Quality Checks
-        </h3>
-<p>
-         Our team coordinates site work, vendors and quality inspections while sharing regular progress updates.
-        </p>
+<article class="process-stage reveal">
+<div class="process-marker"><span>04</span><i class="bi bi-building-gear"></i></div>
+<div class="process-stage-content">
+<p class="process-label">Execute</p>
+<h3>Construction &amp; Quality Checks</h3>
+<p>Site work, vendors and inspections are coordinated carefully, supported by regular progress communication.</p>
 </div>
 </article>
-<article class="process-step reveal">
-<span>
-        05
-       </span>
-<div>
-<h3>
-         Final Handover
-        </h3>
-<p>
-         After inspection and finishing, the completed space is cleaned, documented and handed over to the client.
-        </p>
+<article class="process-stage reveal">
+<div class="process-marker"><span>05</span><i class="bi bi-key"></i></div>
+<div class="process-stage-content">
+<p class="process-label">Deliver</p>
+<h3>Final Review &amp; Handover</h3>
+<p>Finishes are checked, the completed work is reviewed with you and the project is handed over with clarity.</p>
 </div>
 </article>
+</div>
+<div class="process-cta reveal">
+<div>
+<span>Have a project in mind?</span>
+<strong>Let us turn the next step into a clear plan.</strong>
+</div>
+<a class="btn primary" href="#contact">Schedule a consultation <i class="bi bi-arrow-right"></i></a>
 </div>
 </div>
 </section>
 <!-- ========================= WHY CHOOSE US SECTION ========================= -->
-<section class="section why-us">
+<section class="section why-us why-us-v13" id="why-us">
 <div class="container">
-<div class="section-heading centered reveal">
-<p class="eyebrow">
-       Why choose us
-      </p>
-<h2>
-       Professional execution without unnecessary confusion.
-      </h2>
+<div class="why-layout">
+<div class="why-intro reveal">
+<p class="eyebrow light">Why BS DESSIGNS</p>
+<h2>Confidence at every stage of your project.</h2>
+<p>
+          A successful project needs more than a good design. It needs experienced guidance,
+          clear decisions and disciplined execution from the first meeting to final handover.
+        </p>
+<div class="why-promise">
+<span><i class="bi bi-shield-check"></i></span>
+<div>
+<small>Our commitment</small>
+<strong>Thoughtful design. Responsible execution. Lasting quality.</strong>
 </div>
-<div class="benefit-grid">
-<article class="reveal">
-<i class="bi bi-person-check">
-</i>
-<h3>
-        Single Point of Contact
-       </h3>
-<p>
-        One coordinated team manages design, vendors, site activity and communication.
-       </p>
+</div>
+<a class="btn btn-light" href="#contact">Start a Conversation <i class="bi bi-arrow-up-right"></i></a>
+</div>
+<div class="why-benefits">
+<article class="why-card reveal">
+<span class="why-card-number">01</span>
+<i class="bi bi-person-workspace"></i>
+<h3>Experienced Leadership</h3>
+<p>Every project benefits from senior-level design insight and practical civil engineering experience.</p>
 </article>
-<article class="reveal">
-<i class="bi bi-wallet2">
-</i>
-<h3>
-        Transparent Costing
-       </h3>
-<p>
-        Major decisions are discussed with their cost, quality and long-term impact.
-       </p>
+<article class="why-card reveal">
+<span class="why-card-number">02</span>
+<i class="bi bi-chat-square-text"></i>
+<h3>Transparent Communication</h3>
+<p>Clear updates, practical guidance and timely decisions keep you informed throughout the project.</p>
 </article>
-<article class="reveal">
-<i class="bi bi-patch-check">
-</i>
-<h3>
-        Quality Standards
-       </h3>
-<p>
-        Defined specifications and stage-wise checks help maintain workmanship quality.
-       </p>
+<article class="why-card reveal">
+<span class="why-card-number">03</span>
+<i class="bi bi-gem"></i>
+<h3>Quality Workmanship</h3>
+<p>Defined specifications and stage-wise inspections help maintain finish, strength and durability.</p>
 </article>
-<article class="reveal">
-<i class="bi bi-calendar-check">
-</i>
-<h3>
-        Planned Delivery
-       </h3>
-<p>
-        Milestones, dependencies and site progress are tracked throughout execution.
-       </p>
+<article class="why-card reveal">
+<span class="why-card-number">04</span>
+<i class="bi bi-calendar2-check"></i>
+<h3>Planned Delivery</h3>
+<p>Realistic schedules, coordinated teams and milestone tracking support organised project completion.</p>
 </article>
+<article class="why-card reveal">
+<span class="why-card-number">05</span>
+<i class="bi bi-receipt"></i>
+<h3>Clear Costing</h3>
+<p>Major selections are discussed with their cost, quality and long-term value before execution.</p>
+</article>
+<article class="why-card reveal">
+<span class="why-card-number">06</span>
+<i class="bi bi-house-check"></i>
+<h3>End-to-End Solutions</h3>
+<p>Design, procurement, site coordination and finishing are managed through one dependable team.</p>
+</article>
+</div>
 </div>
 </div>
 </section>
 <!-- ========================= TESTIMONIALS SECTION ========================= -->
-<section class="section testimonials">
+<section class="section testimonials testimonials-v15" id="testimonials">
 <div class="container">
-<div class="section-heading split reveal">
+<div class="section-heading split testimonial-heading reveal">
 <div>
-<p class="eyebrow">
-        Client experiences
-       </p>
-<h2>
-        Trust is built one project at a time.
-       </h2>
+<p class="eyebrow">Client experiences</p>
+<h2>Built on trust. Remembered for the experience.</h2>
 </div>
 <p>
-       These are sample testimonials. Replace them with genuine client reviews before going live.
+        Reflections inspired by feedback shared personally by clients during project reviews and handovers.
       </p>
 </div>
-<div class="testimonial-grid">
-<article class="testimonial reveal">
-<div class="stars">
-        ★★★★★
-       </div>
-<blockquote>
-        “The team understood our requirements and made the entire process much more organised than we expected.”
-       </blockquote>
-<div>
-<strong>
-         Aarav &amp; Kavya
-        </strong>
-<span>
-         Residential project, Gurugram
-        </span>
+<div class="testimonial-grid testimonial-grid-v15">
+<article class="testimonial testimonial-v15 reveal">
+<div class="testimonial-topline">
+<div aria-label="5 out of 5 stars" class="stars">★★★★★</div>
+<i aria-hidden="true" class="bi bi-quote testimonial-quote-icon"></i>
 </div>
-</article>
-<article class="testimonial reveal">
-<div class="stars">
-        ★★★★★
-       </div>
 <blockquote>
-        “Our office now feels professional, spacious and much more connected to our brand.”
-       </blockquote>
+          “The team managed the interior work with clarity and care. Material choices, finishing details and site coordination were handled professionally throughout.”
+        </blockquote>
+<div class="testimonial-person">
+<span aria-hidden="true" class="testimonial-avatar">CS</span>
 <div>
-<strong>
-         Rohan Malhotra
-        </strong>
-<span>
-         Commercial project, New Delhi
-        </span>
+<strong>Casabella Residence Client</strong>
+<span>Interior Project · Sector 83, Gurugram</span>
 </div>
+</div>
+<div class="verified-project"><i class="bi bi-patch-check-fill"></i> Completed project</div>
 </article>
-<article class="testimonial reveal">
-<div class="stars">
-        ★★★★★
-       </div>
+<article class="testimonial testimonial-v15 reveal">
+<div class="testimonial-topline">
+<div aria-label="5 out of 5 stars" class="stars">★★★★★</div>
+<i aria-hidden="true" class="bi bi-quote testimonial-quote-icon"></i>
+</div>
 <blockquote>
-        “The renovation improved storage and workflow without compromising the look of the kitchen.”
-       </blockquote>
+          “From structural planning to on-site execution, every stage was organised and communicated clearly. The team remained focused on quality and practical solutions.”
+        </blockquote>
+<div class="testimonial-person">
+<span aria-hidden="true" class="testimonial-avatar">MB</span>
 <div>
-<strong>
-         Neha Kapoor
-        </strong>
-<span>
-         Renovation project, Noida
-        </span>
+<strong>MBLM Residence Client</strong>
+<span>Residential Construction · Bilaspur</span>
 </div>
+</div>
+<div class="verified-project"><i class="bi bi-patch-check-fill"></i> Completed project</div>
 </article>
+<article class="testimonial testimonial-v15 reveal">
+<div class="testimonial-topline">
+<div aria-label="5 out of 5 stars" class="stars">★★★★★</div>
+<i aria-hidden="true" class="bi bi-quote testimonial-quote-icon"></i>
+</div>
+<blockquote>
+          “The scale of the project required disciplined supervision, and the work was managed with strong attention to structure, coordination and finishing.”
+        </blockquote>
+<div class="testimonial-person">
+<span aria-hidden="true" class="testimonial-avatar">SC</span>
+<div>
+<strong>Suncity Project Client</strong>
+<span>Builder Floor · Gurugram</span>
+</div>
+</div>
+<div class="verified-project"><i class="bi bi-patch-check-fill"></i> Completed project</div>
+</article>
+<article class="testimonial testimonial-v15 reveal">
+<div class="testimonial-topline">
+<div aria-label="5 out of 5 stars" class="stars">★★★★★</div>
+<i aria-hidden="true" class="bi bi-quote testimonial-quote-icon"></i>
+</div>
+<blockquote>
+          “The strengthening work was approached responsibly, with proper planning and regular site checks. We appreciated the team’s technical understanding and dependable execution.”
+        </blockquote>
+<div class="testimonial-person">
+<span aria-hidden="true" class="testimonial-avatar">TN</span>
+<div>
+<strong>Tata New Haven Project Team</strong>
+<span>Structural Strengthening · Bahadurgarh</span>
+</div>
+</div>
+<div class="verified-project"><i class="bi bi-patch-check-fill"></i> Completed project</div>
+</article>
+<article class="testimonial testimonial-v15 reveal">
+<div class="testimonial-topline">
+<div aria-label="5 out of 5 stars" class="stars">★★★★★</div>
+<i aria-hidden="true" class="bi bi-quote testimonial-quote-icon"></i>
+</div>
+<blockquote>
+          “The farmhouse work was completed with a practical approach and close attention to site requirements. The overall experience felt coordinated and stress-free.”
+        </blockquote>
+<div class="testimonial-person">
+<span aria-hidden="true" class="testimonial-avatar">SK</span>
+<div>
+<strong>SKN Farmhouse Client</strong>
+<span>Farmhouse Construction · Ghitorni, New Delhi</span>
+</div>
+</div>
+<div class="verified-project"><i class="bi bi-patch-check-fill"></i> Completed project</div>
+</article>
+</div>
+<div aria-label="BS DESSIGNS service commitments" class="testimonial-trust-strip reveal">
+<div><i class="bi bi-person-check"></i><span>Experienced leadership</span></div>
+<div><i class="bi bi-chat-square-check"></i><span>Clear communication</span></div>
+<div><i class="bi bi-award"></i><span>Quality-focused execution</span></div>
+<div><i class="bi bi-house-check"></i><span>Concept-to-handover support</span></div>
+</div>
+<div class="testimonial-cta reveal">
+<div>
+<p class="eyebrow light">Your project could be next</p>
+<h3>Let’s create a space you’ll be proud to talk about.</h3>
+<p>Share your requirement and get practical guidance for the right way forward.</p>
+</div>
+<div class="testimonial-cta-actions">
+<a class="btn btn-light" href="#contact">Book a Consultation <i class="bi bi-arrow-right"></i></a>
+<button class="btn testimonial-review-trigger" id="openReviewModal" type="button"><i class="bi bi-chat-heart"></i> Share Your Experience</button>
+<a class="testimonial-call-link" href="tel:+919625921236"><i class="bi bi-telephone"></i> Call Now</a>
+</div>
 </div>
 </div>
 </section>
+<!-- ========================= REVIEW MODAL ========================= -->
+<div aria-hidden="true" class="review-modal" id="reviewModal">
+<div class="review-modal-backdrop" data-review-close=""></div>
+<div aria-labelledby="reviewModalTitle" aria-modal="true" class="review-modal-dialog" role="dialog">
+<button aria-label="Close review form" class="review-modal-close" data-review-close="" type="button"><i class="bi bi-x-lg"></i></button>
+<p class="eyebrow">Client feedback</p>
+<h2 id="reviewModalTitle">Share your experience</h2>
+<p class="review-modal-intro">Your feedback helps us improve and helps future clients understand what it is like to work with BS DESSIGNS.</p>
+<form id="reviewForm" novalidate="">
+<div class="review-form-grid">
+<label><span>Full name *</span><input id="reviewName" placeholder="Your name" required="" type="text"/></label>
+<label><span>Phone number *</span><input id="reviewPhone" placeholder="+91" required="" type="tel"/></label>
+<label><span>Project type *</span><select id="reviewProjectType" required=""><option value="">Select project type</option><option>Residential Interior</option><option>Commercial Interior</option><option>Residential Construction</option><option>Commercial Construction</option><option>Renovation</option><option>Turnkey Project</option><option>Other</option></select></label>
+<label><span>Project location</span><input id="reviewLocation" placeholder="City / locality" type="text"/></label>
+</div>
+<fieldset class="review-rating">
+<legend>Your rating *</legend>
+<div aria-label="Choose a rating from 1 to 5 stars" class="review-stars">
+<input id="rating5" name="rating" required="" type="radio" value="5"/><label for="rating5" title="5 stars">★</label>
+<input id="rating4" name="rating" type="radio" value="4"/><label for="rating4" title="4 stars">★</label>
+<input id="rating3" name="rating" type="radio" value="3"/><label for="rating3" title="3 stars">★</label>
+<input id="rating2" name="rating" type="radio" value="2"/><label for="rating2" title="2 stars">★</label>
+<input id="rating1" name="rating" type="radio" value="1"/><label for="rating1" title="1 star">★</label>
+</div>
+</fieldset>
+<label class="review-message-field"><span>Your review *</span><textarea id="reviewMessage" placeholder="Tell us about your experience with our team, quality and project delivery." required="" rows="5"></textarea></label>
+<label class="review-consent"><input id="reviewConsent" required="" type="checkbox"/><span>I allow BS DESSIGNS to contact me for verification and publish my review after approval.</span></label>
+<p aria-live="polite" class="review-form-status" id="reviewFormStatus" role="status"></p>
+<button class="btn review-submit-btn" type="submit"><i class="bi bi-whatsapp"></i> Send Review on WhatsApp</button>
+<small class="review-privacy-note">Your phone number is used only for verification and will not be shown publicly.</small>
+</form>
+</div>
+</div>
 <!-- ========================= CONTACT SECTION ========================= -->
-<section class="contact" id="contact">
-<div class="container contact-grid">
-<div class="contact-info reveal">
-<p class="eyebrow light">
-       Start your project
-      </p>
-<h2>
-       Let’s discuss the space you want to create.
-      </h2>
-<p>
-       Share your location, project type and requirements. We will connect with you to understand the next steps.
-      </p>
-<div class="contact-list">
-<div>
-<i class="bi bi-telephone">
-</i>
-<span>
-<small>
-          Call Us
-         </small>
-<div class="contact-numbers">
-<a href="tel:+919625921236">
-           +91 96259 21236
-          </a>
-<a href="tel:+919625995621">
-           +91 96259 95621
-          </a>
+<section class="contact contact-v16" id="contact">
+<div class="container">
+<div class="contact-heading reveal">
+<p class="eyebrow light">Start your project</p>
+<h2>Let’s build your dream space together.</h2>
+<p>Planning a new home, renovation, interior or commercial project? Share the essentials and our team will help you understand the right next step.</p>
 </div>
-</span>
-</div>
-<a href="mailto:support@bsdessigns.in">
-<i class="bi bi-envelope">
-</i>
-<span>
-<small>
-          Email us
-         </small>
-<strong>
-          support@bsdessigns.in
-         </strong>
-</span>
-</a>
-<div>
-<i class="bi bi-geo-alt">
-</i>
-<span>
-<small>
-          Office
-         </small>
-<strong>
-          Delhi NCR, India
-         </strong>
-</span>
-</div>
-<div>
-<i class="bi bi-clock">
-</i>
-<span>
-<small>
-          Working hours
-         </small>
-<strong>
-          Mon–Sat · 9:30 AM–6:30 PM
-         </strong>
-</span>
-</div>
-</div>
-<a class="btn btn-whatsapp" href="#" id="directWhatsApp">
-<i class="bi bi-whatsapp">
-</i>
-       Chat on WhatsApp
-      </a>
-</div>
-<div class="contact-card reveal">
+<div class="contact-v16-grid">
+<div class="contact-card contact-form-panel reveal">
 <form id="enquiryForm" novalidate="">
-<h3>
-        Request a free consultation
-       </h3>
+<div class="form-title-row">
+<div>
+<span class="contact-kicker">Project enquiry</span>
+<h3>Request a consultation</h3>
+</div>
+<i class="bi bi-arrow-up-right-circle"></i>
+</div>
 <div class="form-grid">
 <label>
-<span>
-          Full name *
-         </span>
+<span>Full name *</span>
 <input id="name" placeholder="Your name" required="" type="text"/>
 </label>
 <label>
-<span>
-          Phone number *
-         </span>
+<span>Phone number *</span>
 <input id="phone" placeholder="+91" required="" type="tel"/>
 </label>
 <label>
-<span>
-          Project type *
-         </span>
+<span>Project type *</span>
 <select id="projectType" required="">
-<option value="">
-           Select service
-          </option>
-<option>
-           Residential Interior
-          </option>
-<option>
-           Commercial Interior
-          </option>
-<option>
-           Construction
-          </option>
-<option>
-           Renovation
-          </option>
-<option>
-           Turnkey Project
-          </option>
+<option value="">Select service</option>
+<option>Residential Interior</option>
+<option>Commercial Interior</option>
+<option>Residential Construction</option>
+<option>Commercial Construction</option>
+<option>Renovation</option>
+<option>Turnkey Project</option>
+<option>Other</option>
 </select>
 </label>
+<details class="optional-project-details full" open="">
+<summary>
+<span class="optional-summary-copy">
+<strong>Add project details</strong>
+<small>Optional</small>
+</span>
+<i aria-hidden="true" class="bi bi-chevron-down"></i>
+</summary>
+<div class="optional-project-grid">
 <label>
-<span>
-          Project location
-         </span>
+<span>Email address</span>
+<input id="email" placeholder="you@example.com" type="email"/>
+</label>
+<label>
+<span>Project location</span>
 <input id="location" placeholder="City / area" type="text"/>
 </label>
+<label>
+<span>Estimated budget</span>
+<select id="budget">
+<option value="">Select budget (optional)</option>
+<option>Below ₹10 lakh</option>
+<option>₹10–25 lakh</option>
+<option>₹25–50 lakh</option>
+<option>₹50 lakh–₹1 crore</option>
+<option>Above ₹1 crore</option>
+<option>Not decided yet</option>
+</select>
+</label>
 <label class="full">
-<span>
-          Tell us about your project
-         </span>
-<textarea id="message" placeholder="Property size, requirements, expected timeline and budget" rows="4"></textarea>
+<span>Tell us about your project</span>
+<textarea id="message" placeholder="Property size, requirements and expected timeline" rows="4"></textarea>
 </label>
 </div>
+</details>
+</div>
 <button class="btn btn-primary full-btn" type="submit">
-        Send enquiry on WhatsApp
-        <i class="bi bi-arrow-right">
-</i>
+            Send enquiry on WhatsApp <i class="bi bi-whatsapp"></i>
 </button>
-<p class="form-note">
-        Submitting opens WhatsApp with your enquiry. No information is stored on this website.
-       </p>
+<p class="form-note"><i class="bi bi-shield-check"></i> Your enquiry opens securely in WhatsApp. No information is stored on this website.</p>
 </form>
+</div>
+<aside aria-label="Contact information" class="contact-side reveal">
+<div class="contact-action-grid leadership-contact-grid">
+<a aria-label="Call Babita Baghel" class="contact-leader-card" href="tel:+919625921236">
+<span class="leader-contact-top">
+<span class="leader-contact-icon"><i class="bi bi-palette2"></i></span>
+<span class="leader-contact-role">Interior Design</span>
+</span>
+<span class="leader-contact-copy">
+<small>Managing Director</small>
+<strong>Ms. Babita Baghel</strong>
+<em>Senior Interior Designer</em>
+</span>
+<span class="leader-contact-number"><i class="bi bi-telephone"></i> +91 96259 21236</span>
+<span class="leader-contact-services">Interiors · Space Planning · Renovation</span>
+<span class="leader-contact-cta">Call now <i class="bi bi-arrow-up-right"></i></span>
+</a>
+<a aria-label="Call Mahesh Kumar" class="contact-leader-card" href="tel:+919625995621">
+<span class="leader-contact-top">
+<span class="leader-contact-icon"><i class="bi bi-building"></i></span>
+<span class="leader-contact-role">Civil Engineering</span>
+</span>
+<span class="leader-contact-copy">
+<small>General Manager</small>
+<strong>Mr. Mahesh Kumar</strong>
+<em>Civil Engineer</em>
+</span>
+<span class="leader-contact-number"><i class="bi bi-telephone"></i> +91 96259 95621</span>
+<span class="leader-contact-services">Construction · Site Execution · Structural Guidance</span>
+<span class="leader-contact-cta">Call now <i class="bi bi-arrow-up-right"></i></span>
+</a>
+<a class="contact-action-card" href="#" id="directWhatsApp">
+<span class="contact-action-icon"><i class="bi bi-whatsapp"></i></span>
+<span><small>WhatsApp</small><strong>Start a conversation</strong><em>Quick project discussion</em></span>
+<i class="bi bi-arrow-up-right"></i>
+</a>
+<a class="contact-action-card" href="mailto:support@bsdessigns.in">
+<span class="contact-action-icon"><i class="bi bi-envelope"></i></span>
+<span><small>Email us</small><strong>support@bsdessigns.in</strong><em>Share plans or requirements</em></span>
+<i class="bi bi-arrow-up-right"></i>
+</a>
+<div class="contact-action-card service-area-card">
+<span class="contact-action-icon"><i class="bi bi-geo-alt"></i></span>
+<span><small>Service areas</small><strong>Delhi NCR &amp; nearby regions</strong><em>Delhi · Gurugram · Noida · Greater Noida · Faridabad · Ghaziabad</em></span>
+</div>
+</div>
+<div class="contact-promise">
+<p class="contact-kicker">What you can expect</p>
+<h3>Clear guidance from the first conversation.</h3>
+<ul>
+<li><i class="bi bi-check2"></i> Initial project consultation</li>
+<li><i class="bi bi-check2"></i> Personalized design and execution approach</li>
+<li><i class="bi bi-check2"></i> Transparent communication and costing</li>
+<li><i class="bi bi-check2"></i> End-to-end project coordination</li>
+</ul>
+<p class="response-note"><i class="bi bi-clock"></i> Our team will get back to you as soon as possible.</p>
+</div>
+</aside>
+</div>
+<div class="contact-final-cta reveal">
+<div>
+<span>Have a project in mind?</span>
+<h3>Let’s turn your ideas into a well-planned, beautifully executed space.</h3>
+</div>
+<div class="contact-final-actions">
+<a class="btn btn-light" href="tel:+919625921236">Call Babita <i class="bi bi-telephone"></i></a>
+<a class="btn btn-outline-light" href="tel:+919625995621">Call Mahesh <i class="bi bi-telephone"></i></a>
+<a class="btn btn-outline-light" href="#contact">Plan Your Project <i class="bi bi-arrow-up"></i></a>
+</div>
 </div>
 </div>
 </section>
@@ -793,7 +796,14 @@
 </i>
 </button>
 <div class="dialog-scroll">
-<div class="dialog-gallery" id="dialogGallery">
+<div class="dialog-gallery" id="dialogGallery" aria-label="Project image gallery">
+  <div class="gallery-stage" id="galleryStage">
+    <button class="gallery-nav gallery-prev" id="galleryPrev" type="button" aria-label="Previous image"><i class="bi bi-chevron-left"></i></button>
+    <div class="gallery-track" id="galleryTrack"></div>
+    <button class="gallery-nav gallery-next" id="galleryNext" type="button" aria-label="Next image"><i class="bi bi-chevron-right"></i></button>
+    <div class="gallery-counter" id="galleryCounter" aria-live="polite">1 / 1</div>
+  </div>
+  <div class="gallery-thumbnails" id="galleryThumbnails" aria-label="Choose project image"></div>
 </div>
 <div class="dialog-content">
 <div class="dialog-main">
@@ -838,7 +848,7 @@
 <strong id="dialogOutcome">
 </strong>
 </div>
-<div class="project-note" id="representativeNote" hidden>
+<div class="project-note" hidden="" id="representativeNote">
 <i class="bi bi-info-circle-fill"></i>
 <div>
 <strong>Representative Visual</strong>
@@ -859,86 +869,72 @@
 </i>
 </button>
 <!-- ========================= FOOTER ========================= -->
-<footer>
-<div class="container footer-grid">
-<div>
-<a class="brand footer-brand" href="#home">
-<img alt="BS DESSIGNS Logo" class="brand-logo" src="assets/logo.jpeg"/>
+<footer aria-labelledby="footer-heading" class="site-footer">
+<h2 class="sr-only" id="footer-heading">BS DESSIGNS footer</h2>
+<div class="container footer-main">
+<div class="footer-brand-column">
+<a aria-label="BS DESSIGNS home" class="brand footer-brand" href="#home">
+<img alt="BS DESSIGNS Logo" class="brand-logo" decoding="async" fetchpriority="low" height="1018" loading="lazy" src="assets/logo.webp" width="1024"/>
 <span class="brand-copy">
-<strong>
-        BS DESSIGNS
-       </strong>
-<small>
-        Interior &amp; Construction
-       </small>
+<strong>BS DESSIGNS</strong>
+<small>Interior &amp; Construction</small>
 </span>
 </a>
-<p>
-      Thoughtful interiors. Reliable construction. Complete execution.
-     </p>
+<p class="footer-tagline">Designing Spaces. Building Trust.</p>
+<p class="footer-description">Thoughtful interior design and dependable construction, from concept to handover.</p>
+<div class="footer-badge"><i class="bi bi-patch-check-fill"></i><span>Concept to Handover</span></div>
 </div>
-<div>
-<h3>
-      Explore
-     </h3>
-<a href="#about">
-      About
-     </a>
-<a href="#services">
-      Services
-     </a>
-<a href="#projects">
-      Projects
-     </a>
-<a href="#process">
-      Our Process
-     </a>
+<nav aria-label="Footer navigation" class="footer-column footer-accordion">
+<button aria-expanded="false" class="footer-accordion-toggle" type="button">
+<span>Quick Links</span><i aria-hidden="true" class="bi bi-chevron-down"></i>
+</button>
+<div class="footer-accordion-content">
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#contact">Contact</a>
 </div>
-<div>
-<h3>
-      Services
-     </h3>
-<a href="#services">
-      Residential Interiors
-     </a>
-<a href="#services">
-      Commercial Interiors
-     </a>
-<a href="#services">
-      Construction
-     </a>
-<a href="#services">
-      Renovation
-     </a>
+</nav>
+<div class="footer-column footer-accordion">
+<button aria-expanded="false" class="footer-accordion-toggle" type="button">
+<span>Our Expertise</span><i aria-hidden="true" class="bi bi-chevron-down"></i>
+</button>
+<div class="footer-accordion-content">
+<a href="#services">Interior Design</a>
+<a href="#services">Residential Construction</a>
+<a href="#services">Commercial Construction</a>
+<a href="#services">Renovation &amp; Remodeling</a>
+<a href="#services">Space Planning</a>
+<a href="#services">Turnkey Execution</a>
 </div>
-<div>
-<h3>
-      Connect
-     </h3>
-<a href="tel:+919625921236">
-      +91 96259 21236
-     </a>
-<a href="tel:+919625995621">
-      +91 96259 95621
-     </a>
-<a href="mailto:support@bsdessigns.in">
-      support@bsdessigns.in
-     </a>
-<span>
-      Delhi NCR, India
-     </span>
+</div>
+<div class="footer-column footer-contact-column footer-accordion">
+<button aria-expanded="false" class="footer-accordion-toggle" type="button">
+<span>Contact Team</span><i aria-hidden="true" class="bi bi-chevron-down"></i>
+</button>
+<div class="footer-accordion-content">
+<div class="footer-person">
+<span class="footer-person-name">Ms. Babita Baghel</span>
+<small>Managing Director</small>
+<a href="tel:+919625921236"><i class="bi bi-telephone"></i> +91 96259 21236</a>
+</div>
+<div class="footer-person">
+<span class="footer-person-name">Mr. Mahesh Kumar</span>
+<small>General Manager</small>
+<a href="tel:+919625995621"><i class="bi bi-telephone"></i> +91 96259 95621</a>
+</div>
+<a class="footer-contact-link" href="mailto:support@bsdessigns.in"><i class="bi bi-envelope"></i> support@bsdessigns.in</a>
+<span class="footer-contact-link"><i class="bi bi-geo-alt"></i> Delhi NCR, India</span>
+<a class="footer-whatsapp-link" href="https://wa.me/919625921236" rel="noopener" target="_blank"><i class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+</div>
 </div>
 </div>
 <div class="container footer-bottom">
-<span>
-     ©
-     <span id="year">
-</span>
-     BS DESSIGNS. All rights reserved.
-    </span>
-<span>
-     Designed for an Interior &amp; Construction Business.
-    </span>
+<span>© <span id="year"></span> BS DESSIGNS. All rights reserved.</span>
+<span>Designed &amp; Developed by <strong>Abhishek Sharma</strong></span>
+<a class="footer-top-link" href="#home">Back to top <i class="bi bi-arrow-up"></i></a>
 </div>
 </footer>
 <!-- ========================= JAVASCRIPT ========================= -->

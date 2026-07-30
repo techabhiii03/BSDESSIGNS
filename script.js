@@ -27,8 +27,8 @@ const projectData = {
     },
     "outcome": "Successfully delivered with precise execution of water-retaining infrastructure, reinforced-concrete works and coordinated below-ground services.",
     "images": [
-      "assets/projects/alpha-corp-1.jpeg",
-      "assets/projects/alpha-corp-2.jpeg"
+      "assets/projects/alpha-corp-1.webp",
+      "assets/projects/alpha-corp-2.webp"
     ]
   },
   "de-spaces": {
@@ -83,7 +83,7 @@ const projectData = {
     },
     "outcome": "Delivered with careful multi-storey coordination, dimensional accuracy and consistent structural quality across each construction stage.",
     "images": [
-      "assets/projects/adeco-sector14.jpeg"
+      "assets/projects/adeco-sector14.webp"
     ]
   },
   "villa-sector15": {
@@ -110,8 +110,8 @@ const projectData = {
     },
     "outcome": "Completed as a custom private residence with strong structural detailing, coordinated architectural execution and lasting build quality.",
     "images": [
-      "assets/projects/villa-construction.jpeg",
-      "assets/projects/villa-render.jpeg"
+      "assets/projects/villa-construction.webp",
+      "assets/projects/villa-render.webp"
     ]
   },
   "naresh-c76": {
@@ -138,8 +138,8 @@ const projectData = {
     },
     "outcome": "Delivered as a large builder-floor development through planned sequencing, rigorous reinforcement checks and coordinated facade execution.",
     "images": [
-      "assets/projects/naresh-c76-progress.jpeg",
-      "assets/projects/naresh-c76-facade.jpeg"
+      "assets/projects/naresh-c76-progress.webp",
+      "assets/projects/naresh-c76-facade.webp"
     ]
   },
   "mblm-bilaspur": {
@@ -166,9 +166,9 @@ const projectData = {
     },
     "outcome": "Transformed from design concept into built form through phased structural execution, close consultant coordination and continuous quality monitoring.",
     "images": [
-      "assets/projects/mblm-render.jpeg",
-      "assets/projects/mblm-progress-1.jpeg",
-      "assets/projects/mblm-progress-2.jpeg"
+      "assets/projects/mblm-render.webp",
+      "assets/projects/mblm-progress-1.webp",
+      "assets/projects/mblm-progress-2.webp"
     ]
   },
   "guarantors": {
@@ -194,8 +194,8 @@ const projectData = {
     },
     "outcome": "Existing structural elements were strengthened through a controlled execution sequence focused on safety, reinforcement accuracy and long-term performance.",
     "images": [
-      "assets/projects/guarantors-1.jpeg",
-      "assets/projects/guarantors-2.jpeg"
+      "assets/projects/guarantors-1.webp",
+      "assets/projects/guarantors-2.webp"
     ]
   },
   "fortune-farmhouse": {
@@ -221,8 +221,8 @@ const projectData = {
     },
     "outcome": "Completed with thoughtful structural planning, reliable site supervision and quality-focused civil execution across the open-site development.",
     "images": [
-      "assets/projects/fortune-farmhouse-1.jpeg",
-      "assets/projects/fortune-farmhouse-2.jpeg"
+      "assets/projects/fortune-farmhouse-1.webp",
+      "assets/projects/fortune-farmhouse-2.webp"
     ]
   },
   "casabella": {
@@ -248,7 +248,7 @@ const projectData = {
     },
     "outcome": "Delivered as a functional and refined residential interior with coordinated finishes, space-efficient planning and integrated lighting details.",
     "images": [
-      "assets/projects/casabella-interior.jpeg"
+      "assets/projects/casabella-interior.webp"
     ]
   },
   "adeco-manesar": {
@@ -274,7 +274,7 @@ const projectData = {
     },
     "outcome": "Executed with accurate equipment-foundation setting-out, coordinated fabrication and strict attention to industrial safety requirements.",
     "images": [
-      "assets/projects/adeco-manesar.jpeg"
+      "assets/projects/adeco-manesar.webp"
     ]
   }
 };
@@ -286,13 +286,107 @@ backTop.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
 menuToggle.addEventListener("click",()=>{const open=mainNav.classList.toggle("open");menuToggle.setAttribute("aria-expanded",open)});
 mainNav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mainNav.classList.remove("open");menuToggle.setAttribute("aria-expanded","false")}));
 
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.12});
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+// v2.1: premium, performance-friendly motion system.
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Add motion hooks without changing the HTML structure or layout.
+  const groups = [
+    '.stats-band .stat',
+    '.leadership-card',
+    '.purpose-card',
+    '.service-card',
+    '.project-card',
+    '.process-step',
+    '.why-card',
+    '.testimonial-card',
+    '.contact-action-card',
+    '.contact-leader-card',
+    '.footer-accordion'
+  ];
+
+  groups.forEach(selector => {
+    document.querySelectorAll(selector).forEach((element, index) => {
+      element.classList.add('motion-item');
+      element.style.setProperty('--motion-delay', `${Math.min(index % 6, 5) * 70}ms`);
+    });
+  });
+
+  document.querySelectorAll('.about-visual img, .leadership-card img, .project-card img, .service-card img, .testimonial-card img')
+    .forEach(image => {
+      image.classList.add('motion-image');
+      if (image.complete) image.classList.add('is-loaded');
+      else image.addEventListener('load', () => image.classList.add('is-loaded'), { once: true });
+    });
+
+  const animatedElements = document.querySelectorAll('.reveal, .motion-item');
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    animatedElements.forEach(element => element.classList.add('visible'));
+    document.documentElement.classList.add('motion-ready');
+    return;
+  }
+
+  document.documentElement.classList.add('motion-ready');
+
+  const motionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      motionObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+
+  animatedElements.forEach(element => motionObserver.observe(element));
+})();
 
 const filters=document.querySelectorAll(".filter"),projects=document.querySelectorAll(".project-card");
 filters.forEach(btn=>btn.addEventListener("click",()=>{filters.forEach(b=>b.classList.remove("active"));btn.classList.add("active");projects.forEach(card=>card.classList.toggle("hidden",btn.dataset.filter!=="all"&&card.dataset.category!==btn.dataset.filter))}));
 
 const dialog=document.getElementById("projectDialog"),dialogClose=document.getElementById("dialogClose");
+const galleryTrack=document.getElementById("galleryTrack");
+const galleryThumbs=document.getElementById("galleryThumbnails");
+const galleryCounter=document.getElementById("galleryCounter");
+const galleryPrev=document.getElementById("galleryPrev");
+const galleryNext=document.getElementById("galleryNext");
+const galleryStage=document.getElementById("galleryStage");
+let activeGalleryImages=[];
+let activeGalleryTitle="";
+let activeGalleryIndex=0;
+let touchStartX=0;
+let touchStartY=0;
+
+function renderGalleryImage(index,{animate=true}={}){
+  if(!activeGalleryImages.length) return;
+  activeGalleryIndex=(index+activeGalleryImages.length)%activeGalleryImages.length;
+  const slides=galleryTrack.querySelectorAll('.gallery-slide');
+  slides.forEach((slide,i)=>slide.classList.toggle('active',i===activeGalleryIndex));
+  galleryThumbs.querySelectorAll('.gallery-thumb').forEach((thumb,i)=>{
+    thumb.classList.toggle('active',i===activeGalleryIndex);
+    thumb.setAttribute('aria-current',i===activeGalleryIndex?'true':'false');
+  });
+  galleryCounter.textContent=`${activeGalleryIndex+1} / ${activeGalleryImages.length}`;
+  galleryPrev.hidden=activeGalleryImages.length<2;
+  galleryNext.hidden=activeGalleryImages.length<2;
+  if(animate){
+    const current=slides[activeGalleryIndex];
+    current.classList.remove('gallery-enter');
+    requestAnimationFrame(()=>current.classList.add('gallery-enter'));
+  }
+  const currentThumb=galleryThumbs.children[activeGalleryIndex];
+  currentThumb?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function buildGallery(images,title){
+  activeGalleryImages=images;
+  activeGalleryTitle=title;
+  activeGalleryIndex=0;
+  galleryTrack.innerHTML=images.map((src,i)=>`<figure class="gallery-slide${i===0?' active':''}"><img src="${src}" alt="${title} project image ${i+1}" loading="${i===0?'eager':'lazy'}" decoding="async" fetchpriority="${i===0?'high':'low'}"></figure>`).join('');
+  galleryThumbs.innerHTML=images.map((src,i)=>`<button type="button" class="gallery-thumb${i===0?' active':''}" data-index="${i}" aria-label="View image ${i+1} of ${images.length}" aria-current="${i===0?'true':'false'}"><img src="${src}" alt="" loading="lazy" decoding="async"></button>`).join('');
+  galleryThumbs.hidden=images.length<2;
+  renderGalleryImage(0,{animate:false});
+}
+
 function openProject(key) {
   const p = projectData[key];
   if (!p) return;
@@ -310,24 +404,53 @@ function openProject(key) {
 
   const note = document.getElementById("representativeNote");
   note.hidden = !p.representativeImage;
-
-  const gallery = document.getElementById("dialogGallery");
-  gallery.dataset.count = String(p.images.length);
-  gallery.innerHTML = p.images
-    .map((src, i) => `<img src="${src}" alt="${p.title} project image ${i + 1}" loading="eager">`)
-    .join("");
-  gallery.scrollLeft = 0;
+  buildGallery(p.images,p.title);
 
   document.body.classList.add("dialog-open");
   dialog.showModal();
   document.querySelector(".dialog-scroll").scrollTop = 0;
+  dialogClose.focus({preventScroll:true});
 }
 projects.forEach(card=>{card.addEventListener("click",()=>openProject(card.dataset.project));card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openProject(card.dataset.project)}})});
-dialogClose.addEventListener("click",()=>dialog.close());dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});dialog.addEventListener("close",()=>document.body.classList.remove("dialog-open"));
+
+galleryPrev.addEventListener('click',()=>renderGalleryImage(activeGalleryIndex-1));
+galleryNext.addEventListener('click',()=>renderGalleryImage(activeGalleryIndex+1));
+galleryThumbs.addEventListener('click',e=>{
+  const thumb=e.target.closest('.gallery-thumb');
+  if(thumb) renderGalleryImage(Number(thumb.dataset.index));
+});
+
+galleryStage.addEventListener('touchstart',e=>{
+  const touch=e.changedTouches[0];
+  touchStartX=touch.clientX;
+  touchStartY=touch.clientY;
+},{passive:true});
+galleryStage.addEventListener('touchend',e=>{
+  if(activeGalleryImages.length<2) return;
+  const touch=e.changedTouches[0];
+  const dx=touch.clientX-touchStartX;
+  const dy=touch.clientY-touchStartY;
+  if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.25){
+    renderGalleryImage(activeGalleryIndex+(dx<0?1:-1));
+  }
+},{passive:true});
+
+dialogClose.addEventListener("click",()=>dialog.close());
+dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
+dialog.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft'){e.preventDefault();renderGalleryImage(activeGalleryIndex-1)}
+  if(e.key==='ArrowRight'){e.preventDefault();renderGalleryImage(activeGalleryIndex+1)}
+});
+dialog.addEventListener("close",()=>{
+  document.body.classList.remove("dialog-open");
+  activeGalleryImages=[];
+  galleryTrack.innerHTML='';
+  galleryThumbs.innerHTML='';
+});
 
 function whatsappUrl(message){return `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(message)}`}
 document.getElementById("directWhatsApp").href=whatsappUrl(BUSINESS.whatsappGreeting);document.getElementById("floatingWhatsApp").href=whatsappUrl(BUSINESS.whatsappGreeting);
-document.getElementById("enquiryForm").addEventListener("submit",e=>{e.preventDefault();const form=e.currentTarget;if(!form.checkValidity()){form.reportValidity();return}const name=document.getElementById("name").value.trim(),phone=document.getElementById("phone").value.trim(),type=document.getElementById("projectType").value,location=document.getElementById("location").value.trim()||"Not specified",message=document.getElementById("message").value.trim()||"Not specified";const text=`Hello BSDESSIGNS, I would like to request a consultation.\n\nName: ${name}\nPhone: ${phone}\nProject type: ${type}\nLocation: ${location}\nProject details: ${message}`;window.open(whatsappUrl(text),"_blank","noopener")});
+document.getElementById("enquiryForm").addEventListener("submit",e=>{e.preventDefault();const form=e.currentTarget;if(!form.checkValidity()){form.reportValidity();return}const name=document.getElementById("name").value.trim(),phone=document.getElementById("phone").value.trim(),email=document.getElementById("email").value.trim()||"Not specified",type=document.getElementById("projectType").value,location=document.getElementById("location").value.trim()||"Not specified",budget=document.getElementById("budget").value||"Not specified",message=document.getElementById("message").value.trim()||"Not specified";const text=`Hello BS DESSIGNS, I would like to request a consultation.\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nProject type: ${type}\nLocation: ${location}\nEstimated budget: ${budget}\nProject details: ${message}`;window.open(whatsappUrl(text),"_blank","noopener")});
 
 /* =========================================================
    TESTIMONIAL CAROUSEL
@@ -442,4 +565,229 @@ document.getElementById("enquiryForm").addEventListener("submit",e=>{e.preventDe
 
   updateDots();
   startAuto();
+})();
+
+
+/* =========================================================
+   Static review form -> WhatsApp
+   ========================================================= */
+(() => {
+  const modal = document.getElementById('reviewModal');
+  const openButton = document.getElementById('openReviewModal');
+  const form = document.getElementById('reviewForm');
+  const status = document.getElementById('reviewFormStatus');
+  if (!modal || !openButton || !form) return;
+
+  const closeButtons = modal.querySelectorAll('[data-review-close]');
+  let lastFocused = null;
+
+  const openModal = () => {
+    lastFocused = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('review-modal-open');
+    window.setTimeout(() => document.getElementById('reviewName')?.focus(), 120);
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('review-modal-open');
+    lastFocused?.focus();
+  };
+
+  openButton.addEventListener('click', openModal);
+  closeButtons.forEach(button => button.addEventListener('click', closeModal));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    status.textContent = '';
+    status.style.color = '#a33b2c';
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      status.textContent = 'Please complete all required fields before sending your review.';
+      return;
+    }
+
+    const rating = form.querySelector('input[name="rating"]:checked')?.value;
+    const values = {
+      name: document.getElementById('reviewName').value.trim(),
+      phone: document.getElementById('reviewPhone').value.trim(),
+      projectType: document.getElementById('reviewProjectType').value,
+      location: document.getElementById('reviewLocation').value.trim() || 'Not provided',
+      review: document.getElementById('reviewMessage').value.trim(),
+      rating
+    };
+
+    const stars = '⭐'.repeat(Number(values.rating || 0));
+    const message = [
+      '*New Client Review — BS DESSIGNS*',
+      '',
+      `*Client:* ${values.name}`,
+      `*Phone:* ${values.phone}`,
+      `*Project Type:* ${values.projectType}`,
+      `*Location:* ${values.location}`,
+      `*Rating:* ${stars} (${values.rating}/5)`,
+      '',
+      '*Review:*',
+      values.review,
+      '',
+      '_Submitted from www.bsdessigns.in_'
+    ].join('\n');
+
+    status.style.color = '#16763e';
+    status.textContent = 'Opening WhatsApp… Your review will be published after verification.';
+    window.open(`https://wa.me/919625921236?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+  });
+})();
+
+/* =========================================================
+   v1.9.2 — Mobile card interactions
+========================================================= */
+(() => {
+  const mobileQuery = window.matchMedia('(max-width: 760px)');
+
+  // Services: scroll-snap progress dots.
+  const serviceTrack = document.querySelector('.services-grid-v12');
+  if (serviceTrack) {
+    const cards = [...serviceTrack.querySelectorAll('.service-card-v12')];
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'services-mobile-dots';
+    dotsWrap.setAttribute('aria-label', 'Service card position');
+
+    const dots = cards.map((card, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = `services-mobile-dot${index === 0 ? ' is-active' : ''}`;
+      dot.setAttribute('aria-label', `Go to service ${index + 1}`);
+      dot.addEventListener('click', () => card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' }));
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+    serviceTrack.insertAdjacentElement('afterend', dotsWrap);
+
+    let serviceTimer;
+    serviceTrack.addEventListener('scroll', () => {
+      clearTimeout(serviceTimer);
+      serviceTimer = setTimeout(() => {
+        const left = serviceTrack.getBoundingClientRect().left;
+        let active = 0;
+        let nearest = Infinity;
+        cards.forEach((card, index) => {
+          const distance = Math.abs(card.getBoundingClientRect().left - left - 20);
+          if (distance < nearest) { nearest = distance; active = index; }
+        });
+        dots.forEach((dot, index) => dot.classList.toggle('is-active', index === active));
+      }, 70);
+    }, { passive: true });
+  }
+
+  // Process: only one expanded step on mobile.
+  const processStages = [...document.querySelectorAll('.process-stage')];
+  processStages.forEach((stage, index) => {
+    stage.tabIndex = 0;
+    stage.setAttribute('role', 'button');
+    stage.setAttribute('aria-expanded', index === 0 ? 'true' : 'false');
+    if (index === 0) stage.classList.add('is-active');
+
+    const activate = () => {
+      if (!mobileQuery.matches) return;
+      const shouldOpen = !stage.classList.contains('is-active');
+      processStages.forEach(item => {
+        item.classList.remove('is-active');
+        item.setAttribute('aria-expanded', 'false');
+      });
+      if (shouldOpen) {
+        stage.classList.add('is-active');
+        stage.setAttribute('aria-expanded', 'true');
+      }
+    };
+    stage.addEventListener('click', activate);
+    stage.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        activate();
+      }
+    });
+  });
+
+  // Why cards: compact grid, tap to reveal one explanation.
+  const whyCards = [...document.querySelectorAll('.why-card')];
+  whyCards.forEach(card => {
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-expanded', 'false');
+    const toggle = () => {
+      if (!mobileQuery.matches) return;
+      const shouldOpen = !card.classList.contains('is-expanded');
+      whyCards.forEach(item => {
+        item.classList.remove('is-expanded');
+        item.setAttribute('aria-expanded', 'false');
+      });
+      if (shouldOpen) {
+        card.classList.add('is-expanded');
+        card.setAttribute('aria-expanded', 'true');
+      }
+    };
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggle();
+      }
+    });
+  });
+})();
+
+// v1.9.7: keep optional enquiry fields collapsed on mobile and expanded on desktop.
+(() => {
+  const details = document.querySelector('.optional-project-details');
+  if (!details) return;
+  const syncEnquiryDetails = () => {
+    if (window.matchMedia('(min-width: 641px)').matches) details.open = true;
+  };
+  if (window.matchMedia('(max-width: 640px)').matches) details.open = false;
+  window.addEventListener('resize', syncEnquiryDetails, { passive: true });
+})();
+
+// v1.9.8: compact mobile footer accordions.
+(() => {
+  const mobileFooter = window.matchMedia('(max-width: 700px)');
+  const accordions = [...document.querySelectorAll('.footer-accordion')];
+
+  accordions.forEach(section => {
+    const button = section.querySelector('.footer-accordion-toggle');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+      if (!mobileFooter.matches) return;
+      const willOpen = !section.classList.contains('is-open');
+
+      accordions.forEach(item => {
+        item.classList.remove('is-open');
+        const itemButton = item.querySelector('.footer-accordion-toggle');
+        if (itemButton) itemButton.setAttribute('aria-expanded', 'false');
+      });
+
+      if (willOpen) {
+        section.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  const resetFooter = () => {
+    if (!mobileFooter.matches) {
+      accordions.forEach(section => {
+        section.classList.remove('is-open');
+        const button = section.querySelector('.footer-accordion-toggle');
+        if (button) button.setAttribute('aria-expanded', 'false');
+      });
+    }
+  };
+  mobileFooter.addEventListener?.('change', resetFooter);
 })();
